@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "832521333616",
-    "project_id": "farmfusion-ee003",
-    "storage_bucket": "farmfusion-ee003.appspot.com"
+    "project_number": "576895783833",
+    "project_id": "clgproject-b0570",
+    "storage_bucket": "clgproject-b0570.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:832521333616:android:0aaeab69827ae7c7b5bdb5",
+        "mobilesdk_app_id": "1:576895783833:android:8235c500a6f3ca59f33908",
         "android_client_info": {
           "package_name": "com.example.farmfusion"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBPLoLaFfrc2wM3J0EJCCAkPrhjxWBTWGs"
+          "current_key": "AIzaSyAJWguwu20kHPxHKGQHV9BtZq12RCeko8Q"
         }
       ],
       "services": {

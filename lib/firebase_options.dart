@@ -41,48 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB2aXgUGK8hwsUkEuGSTBdCqviJNCyrykg',
-    appId: '1:832521333616:web:85ffea5ca15907c6b5bdb5',
-    messagingSenderId: '832521333616',
-    projectId: 'farmfusion-ee003',
-    authDomain: 'farmfusion-ee003.firebaseapp.com',
-    storageBucket: 'farmfusion-ee003.appspot.com',
-    measurementId: 'G-PW8DV1KSFB',
+    apiKey: 'AIzaSyBgqrAtbzbAya9qYzIJZW0K9ov1aLMQ-6U',
+    appId: '1:576895783833:web:e62bdb741434dafef33908',
+    messagingSenderId: '576895783833',
+    projectId: 'clgproject-b0570',
+    authDomain: 'clgproject-b0570.firebaseapp.com',
+    storageBucket: 'clgproject-b0570.appspot.com',
+    measurementId: 'G-KM624ZN79D',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBPLoLaFfrc2wM3J0EJCCAkPrhjxWBTWGs',
-    appId: '1:832521333616:android:0aaeab69827ae7c7b5bdb5',
-    messagingSenderId: '832521333616',
-    projectId: 'farmfusion-ee003',
-    storageBucket: 'farmfusion-ee003.appspot.com',
+    apiKey: 'AIzaSyAJWguwu20kHPxHKGQHV9BtZq12RCeko8Q',
+    appId: '1:576895783833:android:8235c500a6f3ca59f33908',
+    messagingSenderId: '576895783833',
+    projectId: 'clgproject-b0570',
+    storageBucket: 'clgproject-b0570.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAXO32jB4QIwMnXMCSLQ1BrFYROUS8Hp-s',
-    appId: '1:832521333616:ios:e891c56aeb502eacb5bdb5',
-    messagingSenderId: '832521333616',
-    projectId: 'farmfusion-ee003',
-    storageBucket: 'farmfusion-ee003.appspot.com',
+    apiKey: 'AIzaSyAyB8FGjwBAwzYwifZy8drIv1q2zjK1Pow',
+    appId: '1:576895783833:ios:a8ae9a6029b99173f33908',
+    messagingSenderId: '576895783833',
+    projectId: 'clgproject-b0570',
+    storageBucket: 'clgproject-b0570.appspot.com',
     iosBundleId: 'com.example.farmfusion',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAXO32jB4QIwMnXMCSLQ1BrFYROUS8Hp-s',
-    appId: '1:832521333616:ios:e891c56aeb502eacb5bdb5',
-    messagingSenderId: '832521333616',
-    projectId: 'farmfusion-ee003',
-    storageBucket: 'farmfusion-ee003.appspot.com',
+    apiKey: 'AIzaSyAyB8FGjwBAwzYwifZy8drIv1q2zjK1Pow',
+    appId: '1:576895783833:ios:a8ae9a6029b99173f33908',
+    messagingSenderId: '576895783833',
+    projectId: 'clgproject-b0570',
+    storageBucket: 'clgproject-b0570.appspot.com',
     iosBundleId: 'com.example.farmfusion',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyB2aXgUGK8hwsUkEuGSTBdCqviJNCyrykg',
-    appId: '1:832521333616:web:8c3c101db12eb891b5bdb5',
-    messagingSenderId: '832521333616',
-    projectId: 'farmfusion-ee003',
-    authDomain: 'farmfusion-ee003.firebaseapp.com',
-    storageBucket: 'farmfusion-ee003.appspot.com',
-    measurementId: 'G-1FS82G5466',
+    apiKey: 'AIzaSyBgqrAtbzbAya9qYzIJZW0K9ov1aLMQ-6U',
+    appId: '1:576895783833:web:5a426b4ae8c8d59df33908',
+    messagingSenderId: '576895783833',
+    projectId: 'clgproject-b0570',
+    authDomain: 'clgproject-b0570.firebaseapp.com',
+    storageBucket: 'clgproject-b0570.appspot.com',
+    measurementId: 'G-54HD8VLWWC',
   );
+
 }
