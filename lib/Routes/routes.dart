@@ -2,6 +2,8 @@ import 'package:farmfusion/Routes/routes_name.dart';
 import 'package:farmfusion/Screens/forgetpassword_screen.dart';
 import 'package:farmfusion/Screens/registration_screen.dart';
 import 'package:farmfusion/Screens/splash_screen.dart';
+import 'package:farmfusion/Widgets/navbar.dart';
+
 import 'package:get/get.dart';
 
 import '../Screens/home_screen.dart';
@@ -42,6 +44,13 @@ class AppRoutes{
     GetPage(
       name: RoutesName.forgetPasswordScreen,
       page: () => forgetPasswordScreen(),
+      transitionDuration: Duration(milliseconds: 250),
+      transition: Transition.rightToLeftWithFade,
+    ),
+
+    GetPage(
+      name: RoutesName.navbarWidget,
+      page: () => Navbar(),
       transitionDuration: Duration(milliseconds: 250),
       transition: Transition.rightToLeftWithFade,
     ),

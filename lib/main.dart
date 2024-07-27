@@ -8,6 +8,8 @@ import 'Routes/routes.dart';
 import 'Screens/splash_screen.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

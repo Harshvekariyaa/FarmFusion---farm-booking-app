@@ -11,4 +11,6 @@ class RoutesName{
 
   static const String forgetPasswordScreen = '/forgetpassword_screen';
 
+  static const String navbarWidget = '/navbar';
+
 }

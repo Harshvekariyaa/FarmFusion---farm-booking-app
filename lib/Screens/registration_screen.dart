@@ -52,132 +52,134 @@ class _registrationScreenState extends State<registrationScreen> {
     return Scaffold(
       backgroundColor: Colors.green,
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Card(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text(
-                      'SIGN UP',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    CustomTextField(
-                      label: 'Name',
-                      controller: _nameController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your name';
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextField(
-                      label: 'Email',
-                      controller: _emailController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your email';
-                        }
-                        if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                          return 'Please enter a valid email';
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextField(
-                      label: 'Phone Number',
-                      controller: _phoneNumberController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your phone number';
-                        }
-                        if (!RegExp(r'^\+?[0-9]{10,13}$').hasMatch(value)) {
-                          return 'Please enter a valid phone number';
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextField(
-                      label: 'Password',
-                      controller: _passwordController,
-                      isPassword: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        if (value.length < 6) {
-                          return 'Password must be at least 6 characters long';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 10),
-                    CustomTextField(
-                      label: 'Confirm Password',
-                      controller: _confirmPasswordController,
-                      isPassword: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please confirm your password';
-                        }
-                        if (value != _passwordController.text) {
-                          return 'Passwords do not match';
-                        }
-                        return null;
-                      },
-                    ),
-
-                    SizedBox(height: 10),
-
-                    CheckboxListTile(
-                      value: true,
-                      onChanged: (value) {},
-                      title: Text('I accept all your terms and conditions.'),
-                      controlAffinity: ListTileControlAffinity.leading,
-                    ),
-
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: _signUp,
-                      child: Text('SUBMIT',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300),),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                        textStyle: TextStyle(fontSize: 18),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Already have an account?"),
-                        TextButton(
-                          onPressed: () {
-                            Get.toNamed(RoutesName.loginScreen.toString());
-                          },
-                          child: Text('Sign in here.'),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Card(
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      const Text(
+                        'SIGN UP',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      SizedBox(height: 20),
+                      CustomTextField(
+                        label: 'Name',
+                        controller: _nameController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your name';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      CustomTextField(
+                        label: 'Email',
+                        controller: _emailController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your email';
+                          }
+                          if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                            return 'Please enter a valid email';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      CustomTextField(
+                        label: 'Phone Number',
+                        controller: _phoneNumberController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your phone number';
+                          }
+                          if (!RegExp(r'^\+?[0-9]{10,13}$').hasMatch(value)) {
+                            return 'Please enter a valid phone number';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 10),
+                      CustomTextField(
+                        label: 'Password',
+                        controller: _passwordController,
+                        isPassword: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          if (value.length < 6) {
+                            return 'Password must be at least 6 characters long';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 10),
+                      CustomTextField(
+                        label: 'Confirm Password',
+                        controller: _confirmPasswordController,
+                        isPassword: true,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please confirm your password';
+                          }
+                          if (value != _passwordController.text) {
+                            return 'Passwords do not match';
+                          }
+                          return null;
+                        },
+                      ),
+          
+                      SizedBox(height: 10),
+          
+                      CheckboxListTile(
+                        value: true,
+                        onChanged: (value) {},
+                        title: Text('I accept all your terms and conditions.'),
+                        controlAffinity: ListTileControlAffinity.leading,
+                      ),
+          
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: _signUp,
+                        child: Text('SUBMIT',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300),),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green,
+                          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                          textStyle: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+          
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Already have an account?"),
+                          TextButton(
+                            onPressed: () {
+                              Get.toNamed(RoutesName.loginScreen.toString());
+                            },
+                            child: Text('Sign in here.'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

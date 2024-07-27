@@ -24,7 +24,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(Duration(seconds: 4), (){
       Navigator.push(context, MaterialPageRoute(builder: (context) => checkUserLogIn(),));
-      // Get.offNamed(RoutesName.registrationScreen.toString());
     });
   }
 
