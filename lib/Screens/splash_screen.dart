@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(Duration(seconds: 4), (){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => checkUserLogIn(),));
+      Navigator.push(context, MaterialPageRoute(builder: (context) =>CheckUserLogin(),));
     });
   }
 

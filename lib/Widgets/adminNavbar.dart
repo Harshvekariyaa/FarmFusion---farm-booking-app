@@ -1,10 +1,11 @@
-import 'package:farmfusion/Screens/users/userHomeScreen.dart';
+import 'package:farmfusion/Screens/admin/addfarmscreen.dart';
+import 'package:farmfusion/Screens/admin/adminProfile.dart';
+import 'package:farmfusion/Screens/admin/adminhomescreen.dart';
+import 'package:farmfusion/Screens/admin/bookedfarm.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../Screens/users/userBookedScreen.dart';
-import '../Screens/users/userProfileScreen.dart';
 
-class NavbarController extends GetxController {
+class adminNavbarController extends GetxController {
   var selectedIndex = 0.obs;
 
   void changeIndex(int index) {
@@ -12,13 +13,14 @@ class NavbarController extends GetxController {
   }
 }
 
-class Navbar extends StatelessWidget {
-  final NavbarController navbarController = Get.put(NavbarController());
+class adminNavbar extends StatelessWidget {
+  final adminNavbarController navbarController = Get.put(adminNavbarController());
 
   final screens = [
-    userHomeScreen(),
-    userBookedScreen(),
-    userProfileScreen()
+    AdminHomeScreen(),
+    bookedFarm(),
+    AddFarmScreen(),
+    adminProfile()
   ];
 
   @override
@@ -45,7 +47,8 @@ class Navbar extends StatelessWidget {
           onTap: navbarController.changeIndex,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.book), label: "Booked"),
+            BottomNavigationBarItem(icon: Icon(Icons.details), label: "Farm details"),
+            BottomNavigationBarItem(icon: Icon(Icons.add), label: "add Farm"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
           ],
         ),

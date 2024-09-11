@@ -2,11 +2,9 @@ import 'package:farmfusion/Routes/routes_name.dart';
 import 'package:farmfusion/Screens/forgetpassword_screen.dart';
 import 'package:farmfusion/Screens/registration_screen.dart';
 import 'package:farmfusion/Screens/splash_screen.dart';
+import 'package:farmfusion/Screens/users/userHomeScreen.dart';
 import 'package:farmfusion/Widgets/navbar.dart';
-
 import 'package:get/get.dart';
-
-import '../Screens/home_screen.dart';
 import '../Screens/login_screen.dart';
 
 class AppRoutes{
@@ -22,7 +20,7 @@ class AppRoutes{
 
     GetPage(
       name: RoutesName.homeScreen,
-      page: () => HomeScreen(),
+      page: () => userHomeScreen(),
       transitionDuration: Duration(milliseconds: 250),
       transition: Transition.rightToLeftWithFade,
     ),

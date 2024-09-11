@@ -1,4 +1,7 @@
 import 'package:farmfusion/Routes/routes_name.dart';
+import 'package:farmfusion/Widgets/adminNavbar.dart';
+import 'package:farmfusion/Widgets/navbar.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,18 +18,52 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   var _isLoading = false.obs;
 
+  final _auth = FirebaseAuth.instance;
+
   Future<void> _login() async {
     if (_formKey.currentState!.validate()) {
       _isLoading.value = true;
 
       try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
+        final newUser = await _auth.signInWithEmailAndPassword(
           email: _emailController.text,
           password: _passwordController.text,
         );
-        Get.offAllNamed(RoutesName.navbarWidget.toString());
+
+        if (newUser != null) {
+          final uid = newUser.user!.uid;
+
+          // Fetch user's role from Firebase Realtime Database
+          final dbRef = FirebaseDatabase.instance.ref().child("Users").child("role");
+          final event = await dbRef.once();
+          final Map<dynamic, dynamic> roles = event.snapshot.value as Map<dynamic, dynamic>;
+
+          if (roles.containsValue(uid)) {
+            String? role;
+            roles.forEach((key, value) {
+              if (value == uid) {
+                role = key;
+              }
+            });
+
+            if (role == "Admin") {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => adminNavbar()),
+              );
+            } else {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Navbar()),
+              );
+            }
+          } else {
+            Get.snackbar('ERROR', 'Role not found for this user.');
+          }
+        }
       } on FirebaseAuthException catch (e) {
-        Get.snackbar('LOGIN FAILED!', 'Enter valid email and password',backgroundColor: Colors.white,colorText: Colors.red.shade500);
+        Get.snackbar('LOGIN FAILED!', 'Enter valid email and password',
+            backgroundColor: Colors.white, colorText: Colors.red.shade500);
       } finally {
         _isLoading.value = false;
       }
@@ -110,16 +147,19 @@ class _LoginScreenState extends State<LoginScreen> {
                           ? CircularProgressIndicator()
                           : ElevatedButton(
                         onPressed: _login,
-                        child: Text('Log In',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w300),),
+                        child: Text(
+                          'Log In',
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w300),
+                        ),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                           textStyle: TextStyle(fontSize: 18),
                         ),
-                        ),
+                      ),
                       ),
 
-                      SizedBox(height: 5,),
+                      SizedBox(height: 5),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
